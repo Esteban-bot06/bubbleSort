@@ -1,3 +1,6 @@
+#include <stdio.h>
+#define MAX  9
+
 void printValues(int*);
 void sort(int*);
 void swap(int*, int*);
@@ -20,3 +23,31 @@ int main(){
 
   return(0);
 } // end main
+void printValues(int* array){
+	int i = 0;
+	printf("[");
+	for(i=0; i < MAX - 1; i++){
+		printf("%d ",array[i]);
+	}
+	printf("]\n");
+}
+
+void swap(int* x, int* y){
+	int ogValue = *x;
+	(*x) = *y;
+	(*y) = ogValue;
+
+}
+
+void sort(int* array){
+	int i = 0;
+	int j = 0;
+	for(i = 0; i <= MAX - 1; i++){
+		for(j = 0; j <= MAX - 1; j++){
+			if(array[j] > array[j+1]){
+				swap(&array[j],&array[j+1]);
+				printValues(array);
+			}
+		}
+	}
+}
